@@ -12,7 +12,7 @@ for row in ws.iter_rows(min_row=2, min_col=4, max_col=4):
     for cell in row:
         print(cell.row)
         if find(cell.value+'.png') is not None:
-            ws['AD'+str(cell.row)] = 'https://sweetregina.com/wp-content/uploads/2021/8/'+cell.value.replace(" ","-")+'.jpg'
+            ws['AD'+str(cell.row)] = 'https://sweetregina.com/wp-content/uploads/2021/08/'+cell.value.lstrip().replace(" ","-").replace("'","").replace("ñ","n").replace("á","a").replace("é","e").replace("í","í").replace("ó","o").replace("ú","u")+'.jpg'
         else:
             ws['AD'+str(cell.row)] = None
 wb.save('prods-new.xlsx')
